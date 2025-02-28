@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botón "Crear" alineado a la izquierda -->
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/task-create']">➕ Crear</ion-button>
+    </ion-buttons>
+
+    <!-- Título centrado -->
+    <ion-title>Tareas</ion-title>
+
+    <!-- Botón de logout alineado a la derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <ion-label>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+        <ion-chip [color]="getStatusColor(task.status)">
+          {{ task.status }}
+        </ion-chip>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="primary" [routerLink]="['/task-edit', task.id]">✏️</ion-button>
+        <ion-button color="danger" (click)="deleteTask(task.id)">🗑️</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

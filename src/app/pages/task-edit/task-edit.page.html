@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Estado</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/tasks']">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-select [(ngModel)]="task.status">
+      <ion-select-option value="pending">Pendiente</ion-select-option>
+      <ion-select-option value="in_progress">En progreso</ion-select-option>
+      <ion-select-option value="completed">Completada</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" (click)="updateStatus()">Actualizar</ion-button>
+</ion-content>
