@@ -74,6 +74,7 @@ export class TasksPage {
 
   async logout() {
     await this.storageService.remove('user_id'); // ❌ Eliminar ID del usuario del almacenamiento
+    await this.storageService.remove('token'); // ❌ Eliminar token del almacenamiento
     this.router.navigate(['/login']); // 🔄 Redirigir al login
   }
 }

@@ -25,6 +25,7 @@ export class LoginPage {
 
       if (response) {
         await this.storageService.set('user_id', response.user.id);  // 📌 Guardar ID del usuario en Storage
+        await this.storageService.set('token', response.token);  // 📌 Guardar token en Storage
         this.router.navigate(['/tasks']); // Redirigir a tareas
       }
     } catch (error) {
